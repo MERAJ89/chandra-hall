@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Selection Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header>
+     <h1>Chandra Banquet Hall</h1>
+    <h2>🍽️ Select Your Food</h2>
+  </header>
+
+  <nav>
+    <button class="tab" onclick="showCategory('veg')">Veg</button>
+    <button class="tab" onclick="showCategory('nonveg')">Non-Veg</button>
+    <button class="tab" onclick="showCategory('beverages')">Beverages</button>
+  </nav>
+
+  <main>
+    <section id="veg" class="product-list category">
+      <div class="card" data-name="Paneer Butter Masala">
+        <img src="paneerButter.jpg" alt="Paneer Butter Masala">
+        <h3>Paneer Butter Masala</h3>
+        <button class="select-btn" onclick="toggleSelect(this)">Select</button>
+      </div>
+      <div class="card" data-name="Veg Biryani">
+        <img src="VegBiryani.jpg" alt="Veg Biryani">
+        <h3>Veg Biryani</h3>
+        <button class="select-btn" onclick="toggleSelect(this)">Select</button>
+      </div>
+    </section>
+
+    <section id="nonveg" class="product-list category" style="display: none;">
+      <div class="card" data-name="Chicken Curry">
+        <img src="ChickenCurry.jpg" alt="Chicken Curry">
+        <h3>Chicken Curry</h3>
+        <button class="select-btn" onclick="toggleSelect(this)">Select</button>
+      </div>
+      <div class="card" data-name="Mutton Biryani">
+        <img src="MuttonBiryani.jpg" alt="Mutton Biryani">
+        <h3>Mutton Biryani</h3>
+        <button class="select-btn" onclick="toggleSelect(this)">Select</button>
+      </div>
+    </section>
+
+    <section id="beverages" class="product-list category" style="display: none;">
+      <div class="card" data-name="Coca-Cola">
+        <img src="CocoCola.jpg" alt="Coca-Cola">
+        <h3>Coca-Cola</h3>
+        <button class="select-btn" onclick="toggleSelect(this)">Select</button>
+      </div>
+      <div class="card" data-name="Lassi">
+        <img src="Lassi.jpg" alt="Lassi">
+        <h3>Lassi</h3>
+        <button class="select-btn" onclick="toggleSelect(this)">Select</button>
+      </div>
+    </section>
+
+    <section id="order-form">
+      <h2>📝 Customer Details</h2>
+      <form onsubmit="submitOrder(event)">
+        <input type="text" id="customerName" placeholder="Your Name" required />
+        <input type="text" id="customerPhone" placeholder="Phone Number" required />
+        <input type="text" id="customerAddress" placeholder="Address" required />
+        <textarea id="selectedItems" placeholder="Selected food items will appear here..." readonly></textarea>
+        <button type="submit">Submit Order</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
