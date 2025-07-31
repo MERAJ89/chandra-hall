@@ -1,54 +1,30 @@
-let selectedItems = [];
-
+// script.js
 function toggleSelect(button) {
-  const card = button.closest(".card");
-  const itemName = card.getAttribute("data-name");
-
-  if (button.classList.contains("selected")) {
-    button.classList.remove("selected");
-    button.textContent = "Select";
-    selectedItems = selectedItems.filter(item => item !== itemName);
-  } else {
-    button.classList.add("selected");
-    button.textContent = "Unselect";
-    selectedItems.push(itemName);
-  }
-
-  document.getElementById("selectedItems").value = selectedItems.join(", ");
+  const itemDiv = button.parentElement;
+  const selected = itemDiv.classList.toggle("selected");
+  button.textContent = selected ? "Deselect" : "Select";
 }
 
+// Hamburger menu toggle
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+// const closeBtn = document.getElementById("closeMenu");
 
-function showCategory(category) {
-  document.querySelectorAll(".category").forEach(sec => sec.style.display = "none");
-  document.getElementById(category).style.display = "grid";
-}
 
-function submitOrder(event) {
-  event.preventDefault();
-  const name = document.getElementById("customerName").value;
-  const phone = document.getElementById("customerPhone").value;
-  const Address = document.getElementById("customerAddress").value;
-  const items = document.getElementById("selectedItems").value;
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
 
-  if (!items) {
-    alert("Please select at least one food item!");
-    return;
-  }
+// Close menu manually
+// if (closeBtn) {
+//   closeBtn.addEventListener("click", () => {
+//     navLinks.classList.remove("show");
+//   });
+// }
 
-  alert(`Order Submitted!\n\nName: ${name}\nPhone: ${phone} \nAddress: ${Address} \nItems: ${items}`);
-
-  // Clear everything
-  selectedItems = [];
-  document.getElementById("customerName").value = "";
-  document.getElementById("customerPhone").value = "";
-  document.getElementById("customerAddress").value = "";
-  document.getElementById("selectedItems").value = "";
-
-  document.querySelectorAll(".select-btn").forEach(btn => {
-    btn.classList.remove("selected");
-    btn.textContent = "Select";
-  });
-}
-
-// Show veg by default
-showCategory("veg");
+// // Close menu when a link is clicked
+// document.querySelectorAll(".nav-links a").forEach(link => {
+//   link.addEventListener("click", () => {
+//     navLinks.classList.remove("show");
+//   });
+// });
