@@ -6,9 +6,10 @@ body {
 }
 
 .navbar {
-  background: #333;
+  display: block;
+  background: black;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,6 +29,7 @@ body {
   text-decoration: none;
 }
 
+
 .hamburger {
   display: none;
   font-size: 24px;
@@ -37,70 +39,88 @@ body {
 
 .banner img {
   width: 100%;
-filter: drop-shadow(0 0 0.75rem crimson);
+  filter: drop-shadow(0 0 0.75rem rgb(21, 12, 14));
 
 }
 
 
 .food-section h2 {
   color: black;
-  padding-left: 40%;
   padding-bottom: 30px;
 }
 
-/* .close-icon {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+.footer {
+  background: #333;
   color: white;
-} */
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.footer a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+.footer p{
+  color: white;
+}
 
 
+#contactForm {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #444;
-    position: absolute;
-    right: 20px;
-    top: 60px;
-    padding: 10px;
-    z-index: 1000;
-  }
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-size: 16px;
+}
 
-  /* .close-icon {
-    display: block;
-    position: absolute;
-    top: 15px;
-    right: 60px;
-  } */
+#contactForm button {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
 
-  .nav-links.show {
-    display: flex;
-  }
+#contactForm button:hover {
+  background-color: #555;
+}
 
-  .hamburger {
-    display: block;
-  }
 
-  .nav-links li {
-    margin: 10px 0;
-  }
+.nav-links {
+  display: block;
+  gap: 20px;
+}
 
-  .nav-links li a {
-    padding: 8px 0;
-    display: block;
-  }
+
+.close-btn {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 .food-section {
   padding: 20px;
+  margin-top: 50px;
 }
 
 
 .food-section h2 {
-  color: lightcoral;
+  color: #0d210d;
 
 }
 
@@ -132,4 +152,146 @@ filter: drop-shadow(0 0 0.75rem crimson);
 .item.selected {
   border-color: green;
   background: #e0ffe0;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+
+}
+
+
+.container {
+  width: fit-content;
+  margin: auto;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+h2,
+h3 {
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.container ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.container ul li::before {
+  content: "✔️ ";
+  margin-right: 8px;
+}
+
+.gallery {
+  padding: 40px 20px;
+  background-color: #fafafa;
+}
+
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 50%;
+    background: black;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 20px 0;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .food-section h2 {
+    padding-left: 0;
+
+  }
+
+
+  /* .nav-links.active {
+    display: none;
+  } */
+
+  .hamburger {
+    display: block;
+  }
+
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 81px;
+    right: 171px;
+    z-index: 1000;
+    font-size: 30px;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links li a {
+    padding: 8px 0;
+    display: block;
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+
+  .banner img {
+    height: 500px;
+   
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+
+  }
+
+
 }
