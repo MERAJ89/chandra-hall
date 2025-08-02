@@ -261,7 +261,7 @@ p {
     display: block;
     position: absolute;
     top: 81px;
-    right: 171px;
+    right: 146px;
     z-index: 1000;
     font-size: 30px;
   }
@@ -279,6 +279,10 @@ p {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+  }
+
+  .item{
+    padding: 0;
   }
 
 
