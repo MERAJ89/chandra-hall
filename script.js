@@ -9,29 +9,47 @@ function toggleSelect(button) {
 const hamburger = document.getElementById("hamburger");
 const closeBtn = document.getElementById("closeBtn");
 const navLinks = document.getElementById("navLinks");
+const navLinkItems = navLinks.querySelectorAll("a");
 
-
+// Show nav on hamburger click
 hamburger.addEventListener("click", () => {
   navLinks.style.display = "flex";
-  hamburger.style.display = "block";
-  closeBtn.style.display = "flex";
+  hamburger.style.display = "none";
+  closeBtn.style.display = "block";
 });
 
+// Hide nav on close button click
 closeBtn.addEventListener("click", () => {
-  navLinks.style.display = "none"
+  navLinks.style.display = "none";
   hamburger.style.display = "block";
   closeBtn.style.display = "none";
 });
 
+ if (window.innerWidth <= 768) {
+   navLinks.style.display = "none";
+ }
 
-// Optional: Hide nav if screen resized to desktop
+// Hide nav on clicking a nav link (mobile view)
+navLinkItems.forEach(link => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      navLinks.style.display = "none";
+      hamburger.style.display = "block";
+      closeBtn.style.display = "none";
+    }
+  });
+});
+
+// Optional: Reset nav on window resize
 window.addEventListener("resize", () => {
   if (window.innerWidth > 768) {
-    navLinks.classList.remove("active");
+    navLinks.style.display = "flex";
     hamburger.style.display = "none";
     closeBtn.style.display = "none";
   } else {
+    navLinks.style.display = "none";
     hamburger.style.display = "block";
+    closeBtn.style.display = "none";
   }
 });
 
@@ -48,7 +66,7 @@ function toggleSelect(button) {
   // Trying to select
   if (!isSelected) {
     if (selectedCount >= limit) {
-      alert(`You can only select Only ${limit} item(s) in this category.`);
+      alert(` "sorry" You can only select  ${limit} item(s) in this category.`);
       return;
     }
     itemDiv.classList.add("selected");
