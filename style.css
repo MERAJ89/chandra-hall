@@ -269,10 +269,9 @@ p {
 
 
   .close-btn {
-    display: block;
     position: absolute;
-    top: 15px;
-    right: 166px;
+    top: 4px;
+    right: 151px;
     z-index: 1000;
     font-size: 30px;
   }
@@ -295,10 +294,11 @@ p {
   .item {
     padding: 0px;
   }
- .item button{
-  margin-bottom: 10px;
-  
- }
+
+  .item button {
+    margin-bottom: 10px;
+
+  }
 
   .banner img {
     height: 500px;
